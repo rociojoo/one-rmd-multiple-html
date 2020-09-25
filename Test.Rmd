@@ -1,0 +1,32 @@
+---
+author: "Rocío Joo"
+date: "September 25, 2020"
+output: html_document
+params:
+    df: !r data(mtcars); mtcars
+    set_title: "hola!!!"
+---
+
+---
+title: `r params$set_title`
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Whatever section title you want
+
+Blablablablabla... bla
+
+```{r}
+library(ggplot2)
+
+ggplot(params$df, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point()
+# for (v in union(params$ivs, params$dvs))
+# {
+#    hist <- ggplot(params$df, aes_string(x=v)) + geom_histogram()
+#    print(hist)
+# }
+```
